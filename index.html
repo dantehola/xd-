@@ -1,115 +1,248 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <title>FLOR AMARILLA para mi amor :)</title>
-    
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        font-family: sans-serif;
-      }
-
-      body {
-        display: flex;
-        width: 100%;
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        background-color: #fce4ec;
-      }
-
-      .container {
-        width: 300px;
-        text-align: center;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-      }
-
-      .container h2 {
-        font-size: 1.7rem;
-      }
-
-      .input-display {
-        text-align: center;
-        margin: 0;
-        font-size: 30px;
-        margin: 10px 0;
-      }
-
-      .keypad {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-      }
-
-      .keypad button {
-        padding: 15px;
-        font-size: 25px;
-        background-color: #f8bbd0;
-        border: 1px black solid;
-        outline: none;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-
-      .key:hover {
-        background-color: #f48fb1;
-      }
-
-      .keypad button:last-child {
-        grid-column: 2/3;
-      }
-
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h2>
-        🔒<br />
-        Ingrese la contraseña
-      </h2>
-      <div class="input-display" id="inputDisplay">••••</div>
-      <div class="keypad">
-        <button class="key" onclick="enterDigit('1')">1</button>
-        <button class="key" onclick="enterDigit('2')">2</button>
-        <button class="key" onclick="enterDigit('3')">3</button>
-        <button class="key" onclick="enterDigit('4')">4</button>
-        <button class="key" onclick="enterDigit('5')">5</button>
-        <button class="key" onclick="enterDigit('6')">6</button>
-        <button class="key" onclick="enterDigit('7')">7</button>
-        <button class="key" onclick="enterDigit('9')">9</button>
-        <button class="key" onclick="enterDigit('8')">8</button>
-        <button class="key" onclick="enterDigit('0')">0</button>
-      </div>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flores Amarillas Dante🌻</title>
+<style>
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(#fdf6e3, #f8e7c9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.fondo {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.girasol {
+    position: absolute;
+    animation: caer linear infinite;
+}
+@keyframes caer {
+    0% { transform: translateY(-100px) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+.container {
+    width: 500px;
+    height: 680px;
+    background: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+}
+.decor-flor {
+    position: absolute;
+    width: 180px;
+    z-index: 5;
+    pointer-events: none;
+}
+.flor1 {
+    top: -60px;
+    left: -60px;
+}
+.flor2 {
+    bottom: -60px;
+    right: -60px;
+}
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px;
+}
+.slide.active {
+    display: flex;
+}
+h1 {
+    color: #6b8e23;
+    font-size: 42px;
+    text-align: center;
+}
+.slide p {
+    text-align: center;
+    color: #5c7a2c;
+    font-size: 18px;
+}
+.slide img {
+    width: 460px;
+    max-width: 120%;
+    margin-top: 10px;
+}
+.botones {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.botones button {
+    background: #8fbf5a;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+.carta-slide {
+    justify-content: center;
+    align-items: center;
+}
+.hoja-carta {
+    width: 85%;
+    max-width: 380px;
+    height: 85%;
+    background: #fffef8;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #222;
+    text-align: justify;
+}
+.fecha {
+    text-align: right;
+    margin-bottom: 20px;
+}
+.destinatario {
+    margin-bottom: 15px;
+    text-align: left;
+}
+.hoja-carta p {
+    margin-bottom: 16px;
+}
+.despedida {
+    margin-top: 20px;
+}
+.firma {
+    margin-top: 5px;
+}
+</style>
+</head>
+<body>
+<div class="fondo" id="fondo"></div>
+<div class="container">
+<img class="decor-flor flor1" src="https://png.pngtree.com/.../pngtree-yellow-flowers...">
+<img class="decor-flor flor2" src="https://png.pngtree.com/.../pngtree-yellow-flowers..."
+<!-- SLIDE 1 -->
+<div class="slide active">
+    <h1>Para Gala 💛</h1>
+    <p>Un pequeño detalle para vos...</p>
+    <img src="https://i.pinimg.com/736x/09/d6/59/09d6591427c8e14397b06ecab9017de4.jpg">
+    <div class="botones">
+        <button onclick="nextSlide()">Siguiente ➜</button>
     </div>
-
-    <script>
-      const correctPassword = "2109";
-      const display = document.getElementById("inputDisplay");
-      let input = "";
-      function enterDigit(digit) {
-        if (input.length < 4) {
-          input += digit;
-        }
-        display.textContent = input.padEnd(4, "•");
-        if (input.length === 4) {
-          if (input === correctPassword) {
-            window.location.href = "flower.html"; 
-          } else {
-            alert("Contraseña incorecta, intenta de nuevo");
-            input = "";
-            display.textContent = "••••";
-          }
-        }
-      }
-    </script>
-  </body>
+</div>
+<div class="slide">
+    <p>Aunque la distancia exista,<br>tus flores amarillas siempre van a llegar 🌻</p>
+    <img src="https://i.pinimg.com/736x/5e/82/4a/5e824a82825af4e0e878f4960517e3b5.jpg">
+    <div class="botones">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">→</button>
+    </div>
+</div>
+<div class="slide">
+    <p>Cada flor es un pequeño recordatorio<br>de lo especial que sos 💖</p>
+    <img src="https://i.pinimg.com/736x/15/f2/a0/15f2a03b543087186214be7d716c3620.jpg">
+    <div class="botones">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">→</button>
+    </div>
+</div>
+<div class="slide">
+    <p>Tengo una sorpresa más para vos ✨</p>
+    <img src="https://i.pinimg.com/736x/43/e7/98/43e798ebc28fa84a245c0997434303d0.jpg">
+    <div class="botones">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="goTo(4)">Abrir carta 💌</button>
+    </div>
+</div>
+<div class="slide carta-slide">
+    <div class="hoja-carta">
+        <div class="fecha">21 de septiembre 🌻</div>
+        <p class="destinatario"><strong>Querida Gala,</strong></p>
+<p>
+    Los momentos más bonitos no siempre son los más grandes. 
+    A veces son las risas inesperadas, las conversaciones aunque no tan largas a veces, 
+    los pequeños detalles que casi nadie nota o simplemente el hecho de compartir tiempo juntos sin necesidad de hacer nada especial.
+</p>
+<p>
+    Me dí cuenta de que son precisamente esos instantes sencillos los que más se quedan en el corazón, 
+    los que uno recuerda incluso cuando todo cambia. Porque no se trata de lo que se hace, sino de con quién se vive.
+</p>
+<p>
+    Cada recuerdo contigo se guarda como algo especial, como si tuviera un algo distinto. 
+    Y sinceramente, espero que todavía nos queden muchísimos momentos más por vivir aunque vivas muy lejos (si venis algun dia avisame ¿si?), 
+    más historias que contar y más recuerdos que atesorar con el tiempo.
+</p>
+<p>
+    Porque al final, lo más valioso siempre será eso: los momentos compartidos, 
+    las emociones sinceras y todo aquello que, sin darnos cuenta, va construyendo algo bonito entre nosotros.
+    TQM Gala, gracias por ayudarme cuando siempre te necesito, por escucharme y ya sabes que si necesitas a alguien que te escuche, me tenes a mí siempre.  
+</p>
+        <p class="despedida">Con cariño,</p>
+        <p class="firma"><strong>Dante 💛</strong></p>
+    </div>
+    <div class="botones">
+        <button onclick="goTo(0)">🏠 Inicio</button>
+        <button onclick="prevSlide()">←</button>
+    </div>
+</div>
+</div>
+<script>
+let current = 0;
+const slides = document.querySelectorAll(".slide");
+function showSlide(index) {
+    slides[current].classList.remove("active");
+    current = index;
+    slides[current].classList.add("active");
+}
+function nextSlide() {
+    let next = current + 1;
+    if (next >= slides.length) next = 0;
+    showSlide(next);
+}
+function prevSlide() {
+    let prev = current - 1;
+    if (prev < 0) prev = slides.length - 1;
+    showSlide(prev);
+}
+function goTo(index) {
+    showSlide(index);
+}
+const fondo = document.getElementById("fondo");
+for (let i = 0; i < 25; i++) {
+    let flor = document.createElement("img");
+    flor.src = "https://www.pngmart.com/files/4/Sunflower-PNG-HD.png";
+    flor.className = "girasol";
+    flor.style.left = Math.random() * 100 + "vw";
+    flor.style.animationDuration = (5 + Math.random() * 5) + "s";
+    flor.style.width = (25 + Math.random() * 35) + "px";
+    fondo.appendChild(flor);
+}
+</script>
+</body>
 </html>
